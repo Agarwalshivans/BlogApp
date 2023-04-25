@@ -1,0 +1,89 @@
+<style>
+/*  #notice {
+    background-color: #eee;
+    padding: 10px;
+    font-weight: bold;
+  }*/
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  a.new-blog-post {
+    display: block;
+    width: 150px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  a.new-blog-post:hover {
+    background-color: #555;
+  }
+
+  a.destroy-link {
+    color: #f00;
+    text-decoration: none;
+  }
+
+  a.destroy-link:hover {
+    text-decoration: underline;
+  }
+  #123{
+    float: right;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+
+<h1>Blogs</h1>
+<div id="123">
+  <%= form_tag logout_path, method: :delete do %>
+      <%= submit_tag "Logout" %>
+  <% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= blog.body %></td>
+        <td><%= blog.user_id %></td>
+        <td><%= link_to 'Show', blog %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+        <td><%= link_to 'Destroy', "/blog_delete?id=#{blog.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path %>

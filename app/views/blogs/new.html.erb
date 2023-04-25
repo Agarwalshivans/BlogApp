@@ -1,0 +1,62 @@
+<h1 class="page-title">New Blog</h1>
+
+<%= render 'form', blog: @blog %>
+
+<%= link_to 'Back', blogs_path %>
+<%= link_to 'Create User', new_user_path %>
+
+<style>
+	.page-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+form {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+a.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #666;
+  text-decoration: none;
+}
+
+a.back-link:hover {
+  color: #333;
+}
+</style>
